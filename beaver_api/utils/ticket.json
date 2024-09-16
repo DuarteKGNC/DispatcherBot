@@ -1,0 +1,14 @@
+{
+    "author_name":{
+        "ticket_id":"#3178090087",
+        "priority":"l"
+    },
+    "ticket_link":"https://app.hubspot.com/contacts/4203621/record/0-5/3178090087/",
+    "fields":{
+        "title":"I can't open the app",
+        "goalkeeper":"TNA",
+        "description":"I tried to open the app this morning but I was locked out, I tried to reset my passowrd but still couldn't fix it",
+        "how_to_reproduce":["Go to https://app.kognic.com/ \n","Try to login \n","See the error message that keeps appearing"],
+        "debug_info":"Link: https://annotate.app.kognic.com/view/assignment/e349a61d-b03b-4b93-b63a-3641a4bd135a?source=Bosch_A4&frame=0\nUrl: https://annotate.app.kognic.com/assignment/3672/annotate?taskReason=default\nsowmya.kradhakrishnan@in.bosch.com (2440) | annotate | cameras_sequence\nAssignment: 18038647 | Request: 3672 | Judgement: 14517098\nSession: /wsfe1m/annotell-prod/s/5-f49ed611-c091-48f4-9612-0254191aabf0/0/d1565862-5870-4dc3-907b-2381f2c9f8f2\nVersion: 7f6b039cffb4521058bc66ac040c99b0623047d3\nCopied at: 2024-22-08 02:06 local time | 2024-08-22 08:36 GMT"
+    }
+}
