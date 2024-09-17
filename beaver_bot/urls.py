@@ -20,4 +20,5 @@ from beaver_api import views
 urlpatterns = [
     path("get.UserIDS", views.get_userid),
     path("post.NewTicket", views.dispatch_tickets),
+    path("post.ImportTicket", views.import_ticket)
 ]
