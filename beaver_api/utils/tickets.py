@@ -48,11 +48,6 @@ def standard_ticket(support_channel_id, data, priority, steps_to_reproduce, link
                         "short": False
                     },
                     {
-                        "title": "D:bug: Information:",
-                        "value": f"```{debug_info}```",
-                        "short": False
-                    },
-                    {
                         "title": ":goal_net: Goalkeeper:",
                         "value": f"<@{goalkeeper}>",
                         "short": True

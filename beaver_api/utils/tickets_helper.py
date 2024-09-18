@@ -20,7 +20,7 @@ def clean_debug_info(debug_info):
     user = ""
     v = ""
     info = ""
-    filtered = debug_info.split("\n")[:-1]
+    filtered = debug_info.replace("\r", "").split("\n")[:-1]
     for index, i in enumerate(filtered):
         if index == 0:
             links["view_link"] = i.split(" ")[-1]
