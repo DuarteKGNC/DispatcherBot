@@ -1,6 +1,6 @@
 from datetime import datetime
-def standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper):
-    return {
+def standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper, debug_info):
+    message = {
         "channel": support_channel_id,
         "attachments": [
             {
@@ -48,21 +48,15 @@ def standard_ticket(support_channel_id, data, priority, steps_to_reproduce, link
                         "short": False
                     },
                     {
+                        "title": "D:bug: Information:",
+                        "value": f"```{debug_info}```",
+                        "short": False
+                    },
+                    {
                         "title": ":goal_net: Goalkeeper:",
                         "value": f"<@{goalkeeper}>",
                         "short": True
                     },
-                ],
-                "actions": [
-                    {
-                        "type": "button",
-                        "text": {
-                            "type": "plain_text",
-                            "text": "View More Details"
-                        },
-                        "action_id": "view_details",  # Identifier for the button interaction
-                        "value": data["author_name"]["ticket_id"]  # You can pass the ticket ID as value
-                    }
                 ],
                 "footer": "Technical Support Team",
                 "footer_icon": "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rbecxs664o38xrz8zkhq",
@@ -70,6 +64,12 @@ def standard_ticket(support_channel_id, data, priority, steps_to_reproduce, link
             }
         ]
     }
+    # Attach Media files here
+    message['attachments'].append({
+        "title":"Upload her",
+        "text":"<https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rbecxs664o38xrz8zkhq|Download FIle>"
+    })
+    return message
 
 def non_dinfo_ticket(support_channel_id, data, priority, steps_to_reproduce, goalkeeper):
     return {

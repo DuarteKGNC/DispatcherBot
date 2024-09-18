@@ -49,7 +49,7 @@ def ticket_skeleton(data, goalkeeper, support_channel_id):
     if None in debug_info_checker:
         ticket = non_dinfo_ticket(support_channel_id, data, priority, steps_to_reproduce, goalkeeper)
     else:
-        ticket = standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper)
+        ticket = standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper, debug_info=data['fields']['debug_info'])
     return ticket
 
 def clean_csv(file):
