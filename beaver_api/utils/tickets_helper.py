@@ -17,10 +17,8 @@ def get_priority(priority):
 
 def clean_debug_info(debug_info):
     links = {"view_link": "", "normal_link":"", "logrocket":""}
-    user = ""
-    v = ""
-    info = ""
-    filtered = debug_info.replace("\r", "").split("\n")[:-1]
+    filtered = debug_info.replace("\r", "").split("\n")
+    print(filtered)
     for index, i in enumerate(filtered):
         if index == 0:
             links["view_link"] = i.split(" ")[-1]
@@ -32,16 +30,24 @@ def clean_debug_info(debug_info):
             info = i
         elif index == 4:
             links['logrocket'] = i.split(" ")[-1]
-        elif index == len(filtered)-1:
+        elif index == 5:
             v = i.split(" ")[-1]
-    return links, user, v, info
+        elif index == len(filtered)-1:
+            copied_at = "•"
+            copied_at += ':'.join(i.split(":")[1:])
+            copied_at = copied_at.replace("|","\n•")
+            copied_at = copied_at.replace("local time", "- *Local Time*")
+            copied_at = copied_at.replace("GMT", "- *GMT*")
+
+    print(copied_at)
+    return links, user, v, info, copied_at
 
 
 def ticket_skeleton(data, goalkeeper, support_channel_id):
     priority = get_priority(data['author_name']['priority'])
     links = user = version = info = None
     if data['fields']['debug_info']:
-        links, user, version, info = clean_debug_info(data["fields"]["debug_info"])
+        links, user, version, info, copied_at = clean_debug_info(data["fields"]["debug_info"])
     steps_to_reproduce = ""
     for index, i in enumerate(data["fields"]["how_to_reproduce"]):
         steps_to_reproduce+=f"*{index + 1}*. {i}\n"
@@ -49,7 +55,7 @@ def ticket_skeleton(data, goalkeeper, support_channel_id):
     if None in debug_info_checker:
         ticket = non_dinfo_ticket(support_channel_id, data, priority, steps_to_reproduce, goalkeeper)
     else:
-        ticket = standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper, debug_info=data['fields']['debug_info'])
+        ticket = standard_ticket(support_channel_id, data, priority, steps_to_reproduce, links, user, info, version, goalkeeper, copied_at)
     return ticket
 
 def clean_csv(file):

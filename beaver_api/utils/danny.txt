@@ -1,0 +1,7 @@
+Link: https://annotate.app.kognic.com/view/assignment/e923d62d-2c72-4bd7-acaf-a2a484d61634?source=VIDEO_REAR&object=22b71a66-8d2e-41f3-906e-6ae0bf1ffdef&frame=0
+Url: https://annotate.app.kognic.com/view/assignment/e923d62d-2c72-4bd7-acaf-a2a484d61634
+mm.vigneshan@in.bosch.com (4939) | correct | cameras_sequence
+Assignment: 18422922 | Request: 7254 | Judgement: 14868035
+Session: /wsfe1m/annotell-prod/s/5-cfa6a0a0-31eb-41e3-9568-62c4633738f0/0/f7f051b1-1a1f-4d50-ad45-b564a5a3c976
+Version: 9247f789a772e9bcd40527aafda17472cf140c72
+Copied at: 2024-23-09 11:12 local time | 2024-09-23 05:42 GMT

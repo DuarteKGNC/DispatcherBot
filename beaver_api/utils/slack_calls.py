@@ -11,11 +11,10 @@ HEADERS = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {TOKEN}"
 }
-
 # ENDPOINTS
 SEND_TEXT_ENDPOINT = "https://slack.com/api/chat.postMessage"
 GET_IDS_ENDPOINT = "https://slack.com/api/users.list"
-
+UPLOAD_FILES = "https://slack.com/api/files.upload"
 
 def get_ids(): # Get the IDs of all users
     sleep(1.5)
@@ -25,14 +24,7 @@ def get_ids(): # Get the IDs of all users
         users[i['name']] = i['id']
     return users
 
-
-
 def dispatch(ticket):
-
     data = ticket_skeleton(ticket, ticket['fields']['goalkeeper'], SUPPORT_CHANNEL_ID)
-
-    # Make the POST request
     response = requests.post(SEND_TEXT_ENDPOINT, headers=HEADERS, data=json.dumps(data))
-
-    # Print the response
     return response.json()
